@@ -1,7 +1,9 @@
 # [FlowNet: Learning Optical Flow with Convolutional Networks](https://arxiv.org/pdf/1504.06852.pdf)
-**<u>Authors</u>**: Philipp Fischer, Alexey Dosovitskiy, Eddy Ilg, Philip Häusser, Caner Hazırbaş, Vladimir Golkov, Patrick van der Smagt, Daniel Cremers, Thomas Brox
+**Authors**:<br>
+Philipp Fischer, Alexey Dosovitskiy, Eddy Ilg, Philip Häusser, Caner Hazırbaş, Vladimir Golkov, Patrick van der Smagt, Daniel Cremers, Thomas Brox
 
-**<u>preprint publication date</u>**: 4 May 2015
+**preprint publication date**:<br>
+4 May 2015
 
 ## どのようなもの？(コントリビューション)
 * bar
