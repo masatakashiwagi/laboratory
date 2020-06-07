@@ -15,11 +15,11 @@ git config --local user.email "<ID>+<username>@users.noreply.github.com"
 ### 過去のCommitのAuthorとCommitterを変更する方法
 - 過去の全てのcommitについて変更したい場合，以下を実行する (AUthorとCommitterを変更する)
 ```bash
-git filter-branch -f --env-filter 
-  "GIT_AUTHOR_NAME='<username>'; 
-   GIT_AUTHOR_EMAIL='<ID>+<username>@users.noreply.github.com'; 
-   GIT_COMMITTER_NAME='<username>'; 
-   GIT_COMMITTER_EMAIL='<ID>+<username>@users.noreply.github.com';" 
+git filter-branch -f --env-filter \
+  "GIT_AUTHOR_NAME='<username>'; \
+   GIT_AUTHOR_EMAIL='<ID>+<username>@users.noreply.github.com'; \
+   GIT_COMMITTER_NAME='<username>'; \
+   GIT_COMMITTER_EMAIL='<ID>+<username>@users.noreply.github.com';" \
   HEAD
 ```
 
