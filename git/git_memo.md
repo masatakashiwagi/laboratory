@@ -45,3 +45,12 @@ git merge --allow-unrelated-histories origin/master
 - `--allow-unrelated-histories`について
 
 Git 2.9からmergeコマンドとpullコマンドでは，`--allow-unrelated-histories`を指定しない限り，無関係なヒストリを持つ２つのブランチをマージすることはできなくなった
+
+### command lineでのgit commit方法
+- サーバなどでの作業でGithub Desktopなどが使えない場合に，コマンドを打つ必要がありその時のメモ
+```bash
+# commitまでの流れ: add -> commit -> push
+git add <changed file path>
+git commit -m "some comments"
+git push
+```
