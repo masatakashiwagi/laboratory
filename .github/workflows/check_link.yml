@@ -53,7 +53,7 @@ jobs:
         env:
           SLACK_TITLE: Check Success
           SLACK_COLOR: good
-          SLACK_MESSAGE: 成功したよ
+          SLACK_MESSAGE: URLの確認に成功したよ
 
       # Failure
       - name: Slack Notification on Failure
@@ -62,4 +62,4 @@ jobs:
         env:
           SLACK_TITLE: Check Failure for specific URL
           SLACK_COLOR: danger
-          SLACK_MESSAGE: 失敗したよ
+          SLACK_MESSAGE: URLの確認に失敗したよ
