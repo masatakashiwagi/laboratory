@@ -1,0 +1,42 @@
+name: URL Check Action
+
+on:
+  push:
+    branches:
+      - master
+      - main
+    paths:
+      - 'test/**'
+  pull_request:
+    branches:
+      - master
+      - main
+    paths:
+      - 'test/**'
+
+jobs:
+  check-link:
+    name: Check URL links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+          architecture: 'x64'
+      - name: Get Python version
+        run: python -V
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run Python
+        run: python check_link.py
+      - uses: lazy-actions/slatify@master
+        if: failure()
+        with:
+          type: ${{ job.status }}
+          job_name: "*test_link workflow: Check URL on GithubAction*"
+          channel: "#github-mlops-practices-knowledge"
+          url: "https://hooks.slack.com/services/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"
