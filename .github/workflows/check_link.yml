@@ -30,9 +30,9 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r test/requirements.txt
       - name: Run Python
-        run: python check_link.py
+        run: python test/check_link.py
       - uses: lazy-actions/slatify@master
         if: failure()
         with:
