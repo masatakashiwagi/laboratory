@@ -1,10 +1,11 @@
 """リンクにアクセスできるかを確認するスクリプト
 """
 
+import time
 import requests
 import bs4
 
-TARGET_LINK = 'https://masatakashiwagi.github.io/mlops-practices/knowledge/'
+TARGET_PAGE = 'https://masatakashiwagi.github.io/mlops-practices/knowledge/'
 
 
 def check_link(target_link: str) -> None:
@@ -30,10 +31,11 @@ def check_link(target_link: str) -> None:
     for i, href in enumerate(href_list):
         res_href = requests.get(href, allow_redirects=False)
         if res_href.status_code != 200:
-            raise ValueError(f"status code is {res_href.status_code}, check the URL link: {href}.")
+            raise ValueError(f"status code is {res_href.status_code}, check the URL link: {href}")
         else:
             print(f'href {i}, {href}: OK')
+        time.sleep(1)
 
 
 if __name__ == '__main__':
-    check_link(TARGET_LINK)
+    check_link(TARGET_PAGE)
