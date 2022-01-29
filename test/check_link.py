@@ -30,7 +30,7 @@ def check_link(target_link: str) -> None:
     for i, href in enumerate(href_list):
         res_href = requests.get(href, allow_redirects=False)
         if res_href.status_code != 200:
-            raise ValueError(f"status code is {res_href.status_code}, check the URL link.")
+            raise ValueError(f"status code is {res_href.status_code}, check the URL link: {href}.")
         else:
             print(f'href {i}, {href}: OK')
 
