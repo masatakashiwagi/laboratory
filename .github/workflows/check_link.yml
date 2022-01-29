@@ -14,6 +14,11 @@ on:
     paths:
       - 'test/**'
 
+env:
+  SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+  SLACK_USERNAME: CheckBot
+  SLACK_CHANNEL: github-mlops-practices-knowledge
+
 jobs:
   check-link:
     name: Check URL links
@@ -33,10 +38,26 @@ jobs:
           pip install -r test/requirements.txt
       - name: Run Python
         run: python test/check_link.py
-      - uses: lazy-actions/slatify@master
-        if: failure()
-        with:
-          type: ${{ job.status }}
-          job_name: "*test_link workflow: Check URL on GithubAction*"
-          channel: "#github-mlops-practices-knowledge"
-          url: "https://hooks.slack.com/services/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"
+      # - uses: lazy-actions/slatify@master
+      #   if: failure()
+      #   with:
+      #     type: ${{ job.status }}
+      #     job_name: "*test_link workflow: Check URL on GithubAction*"
+      #     channel: "#github-mlops-practices-knowledge"
+      #     url: "https://hooks.slack.com/services/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"
+      #-- Slack Notification --#
+      # Success
+      - name: Slack Notification on Success
+        if: ${{ success() }}
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_TITLE: Check Success
+          SLACK_COLOR: good
+
+      # Failure
+      - name: Slack Notification on Failure
+        if: ${{ failure() }}
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_TITLE: Check Failure for specific URL
+          SLACK_COLOR: danger
