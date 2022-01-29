@@ -48,16 +48,18 @@ jobs:
       #-- Slack Notification --#
       # Success
       - name: Slack Notification on Success
-        if: ${{ success() }}
-        uses: rtCamp/action-slack-notify@v2
+        if: success()
+        uses: rtCamp/action-slack-notify@v2.0.2
         env:
           SLACK_TITLE: Check Success
           SLACK_COLOR: good
+          SLACK_MESSAGE: 成功したよ
 
       # Failure
       - name: Slack Notification on Failure
-        if: ${{ failure() }}
-        uses: rtCamp/action-slack-notify@v2
+        if: failure()
+        uses: rtCamp/action-slack-notify@v2.0.2
         env:
           SLACK_TITLE: Check Failure for specific URL
           SLACK_COLOR: danger
+          SLACK_MESSAGE: 失敗したよ
