@@ -6,6 +6,9 @@ import requests
 import bs4
 
 TARGET_PAGE = 'https://masatakashiwagi.github.io/mlops-practices/knowledge/'
+UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) '\
+     'AppleWebKit/537.36 (KHTML, like Gecko) '\
+     'Chrome/97.0.4692.99 Safari/537.36 '
 
 
 def check_link(target_link: str) -> None:
@@ -15,7 +18,7 @@ def check_link(target_link: str) -> None:
         target_link (str): 調査するサイトのURL
     """
 
-    res = requests.get(target_link)
+    res = requests.get(target_link, headers={'User-Agent': UA})
     res.raise_for_status()
     soup = bs4.BeautifulSoup(res.text, "html.parser")
 
@@ -29,12 +32,11 @@ def check_link(target_link: str) -> None:
             href_list.append(val_href)
 
     for i, href in enumerate(href_list):
-        res_href = requests.get(href, allow_redirects=False)
+        res_href = requests.get(href, allow_redirects=False, headers={'User-Agent': UA})
         if res_href.status_code != 200:
-            raise ValueError(f"status code is {res_href.status_code}, check the URL link: {href}")
+            raise ValueError(f"status code is {res_href.status_code}, check the URL link: {res_href.url}")
         else:
-            print(f'href {i}, {href}: OK')
-        time.sleep(1)
+            print(f'href {i}, {href} : OK')
 
 
 if __name__ == '__main__':
