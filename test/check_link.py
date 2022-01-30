@@ -1,14 +1,13 @@
 """リンクにアクセスできるかを確認するスクリプト
 """
 
-import time
 import requests
 import bs4
 
 TARGET_PAGE = 'https://masatakashiwagi.github.io/mlops-practices/knowledge/'
 UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) '\
-     'AppleWebKit/537.36 (KHTML, like Gecko) '\
-     'Chrome/97.0.4692.99 Safari/537.36 '
+    'AppleWebKit/537.36 (KHTML, like Gecko) '\
+    'Chrome/97.0.4692.99 Safari/537.36 '
 
 
 def check_link(target_link: str) -> None:
