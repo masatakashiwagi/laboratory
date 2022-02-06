@@ -9,7 +9,7 @@ import plotly
 df = pd.DataFrame()
 plt.figure(figsize=(12, 10))
 ax = sns.heatmap(
-    df,
+    df.corr(),
     cmap=sns.color_palette('coolwarm', 10),
     annot=True,
     fmt='.2f',
