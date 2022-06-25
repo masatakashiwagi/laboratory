@@ -1,4 +1,4 @@
-#　What's this?
+# What's this?
 - AWS Lambdaに使いたいライブラリをアップロードする方法
 
 # How is that?
