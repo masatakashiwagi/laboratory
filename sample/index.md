@@ -32,6 +32,7 @@ date: 2021-01-01 12:00:00
 - [機械学習エンジニアのためのMLOps入門](https://speakerdeck.com/chie8842/cookpad-internship-mlops-lecture-1)
 - [先駆者に学ぶMLOpsの実際](https://www.slideshare.net/tetsutarowatanabe/mlops-238097926)
 - [hogehogeほげーー]()
+- [サファdsendpoint下reportindexnファsfhogehogeほげーー]()
 
 <a id="practices"></a>
 
